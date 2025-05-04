@@ -2,25 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Bright Web</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
-    /* Base styles */
-    body {
+    html {
+      scroll-behavior: smooth;
+    }
+    body, html {
       margin: 0;
       padding: 0;
       font-family: 'Share Tech Mono', monospace;
       background-color: #0a0a0a;
       color: #ff003c;
+      overflow-x: hidden;
     }
+
     a {
-      color: #ff003c;
       text-decoration: none;
-      transition: 0.3s ease;
+      color: #ff003c;
+      transition: 0.3s;
     }
+
     a:hover {
-      color: white;
+      color: #ffffff;
     }
 
     /* Header */
@@ -31,20 +36,25 @@
       padding: 20px 40px;
       background: #0a0a0a;
       border-bottom: 1px solid #ff003c;
-      z-index: 2;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
     .logo {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.8em;
-      letter-spacing: 2px;
       color: #ff003c;
+      letter-spacing: 2px;
     }
+
     nav a {
       margin-left: 20px;
-      font-size: 0.9em;
       font-weight: bold;
+      font-size: 0.9em;
       position: relative;
     }
+
     nav a::after {
       content: '';
       display: block;
@@ -54,115 +64,97 @@
       transition: 0.3s;
       margin-top: 4px;
     }
+
     nav a:hover::after {
       width: 100%;
     }
 
-    /* Hero section */
+    /* Hero */
     .hero {
+      padding: 100px 20px 80px;
       text-align: center;
-      padding: 120px 20px;
-      background: radial-gradient(circle at top, #0f0f0f, #000);
     }
+
     .hero h1 {
       font-size: 3em;
-      color: #fff;
       margin-bottom: 20px;
+      color: white;
     }
+
     .hero p {
       font-size: 1.2em;
-      color: #ccc;
       margin-bottom: 40px;
+      color: #ccc;
     }
 
     .btn {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 14px 30px;
       font-weight: bold;
       text-transform: uppercase;
-      color: #ff003c;
       border: 2px solid #ff003c;
+      color: #ff003c;
       background: transparent;
-      box-shadow: 0 0 8px #ff003c, inset 0 0 5px #ff003c;
       transition: 0.3s;
+      box-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c inset;
     }
+
     .btn:hover {
       background: #ff003c;
       color: #0a0a0a;
-      box-shadow: 0 0 25px #ff003c;
+      box-shadow: 0 0 20px #ff003c;
     }
 
-    /* Glitch text */
-    .glitch {
-      font-size: 2.5em;
-      position: relative;
-      color: #fff;
-    }
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-    .glitch::before {
-      left: 2px;
-      text-shadow: -2px 0 red;
-      animation: glitch 1s infinite linear alternate-reverse;
-    }
-    .glitch::after {
-      left: -2px;
-      text-shadow: -2px 0 blue;
-      animation: glitch 1s infinite linear alternate;
+    section {
+      padding: 80px 20px;
+      border-top: 1px solid #222;
+      text-align: center;
     }
 
-    @keyframes glitch {
-      0% { clip: rect(0, 900px, 0, 0); }
-      10% { clip: rect(10px, 900px, 40px, 0); }
-      20% { clip: rect(60px, 900px, 70px, 0); }
-      30% { clip: rect(40px, 900px, 50px, 0); }
-      40% { clip: rect(20px, 900px, 40px, 0); }
-      50% { clip: rect(30px, 900px, 60px, 0); }
-      60% { clip: rect(10px, 900px, 30px, 0); }
-      70% { clip: rect(40px, 900px, 70px, 0); }
-      80% { clip: rect(50px, 900px, 80px, 0); }
-      90% { clip: rect(10px, 900px, 20px, 0); }
-      100% { clip: rect(0, 900px, 0, 0); }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
     }
 
-    /* Cool animated cursor effect */
-    body {
-      cursor: crosshair;
+    section p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 1em;
+      color: #bbb;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-      color: #555;
+      padding: 40px 20px;
+      border-top: 1px solid #ff003c;
+      font-size: 0.85em;
       background: #0a0a0a;
-      border-top: 1px solid #111;
+      color: #666;
     }
 
-    /* Background scanlines effect */
+    /* Scanline overlay */
     body::before {
       content: '';
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
       background: repeating-linear-gradient(
         to bottom,
-        rgba(255, 0, 60, 0.02),
-        rgba(255, 0, 60, 0.02) 1px,
+        rgba(255, 0, 60, 0.015),
+        rgba(255, 0, 60, 0.015) 1px,
         transparent 1px,
         transparent 4px
       );
       z-index: 9999;
+    }
+
+    /* Crosshair cursor */
+    body {
+      cursor: crosshair;
     }
   </style>
 </head>
@@ -171,21 +163,39 @@
   <header>
     <div class="logo">THE BRIGHT WEB</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Arena</a>
-      <a href="#">Loadouts</a>
-      <a href="#">Clan</a>
+      <a href="#home">Home</a>
+      <a href="#arena">Arena</a>
+      <a href="#loadouts">Loadouts</a>
+      <a href="#clan">Clan</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <div class="glitch" data-text="THE BRIGHT WEB">THE BRIGHT WEB</div>
-    <p>Code. Chaos. Dominate. Repeat.</p>
-    <a href="#" class="btn">Enter Now</a>
+  <main class="hero" id="home">
+    <h1>WELCOME TO THE BRIGHT WEB</h1>
+    <p>Where gamers rise. No rules. Just code, chaos, and domination.</p>
+    <a href="#arena" class="btn">Deploy Now</a>
   </main>
 
+  <section id="arena">
+    <h2>The Arena</h2>
+    <p>Step into the digital pit. It's brutal. It's fast. It's yours. Leaderboards are real-time. Wins are bragging rights. The Bright Web doesn’t forget.</p>
+    <a href="#loadouts" class="btn">View Loadouts</a>
+  </section>
+
+  <section id="loadouts">
+    <h2>Your Loadouts</h2>
+    <p>Customize your tools. Build your edge. Guns, gear, and code — tailor your arsenal to dominate the next drop.</p>
+    <a href="#clan" class="btn">Join The Clan</a>
+  </section>
+
+  <section id="clan">
+    <h2>The Clan</h2>
+    <p>This isn’t a community — it’s a movement. Join a unit of code warriors and pixel killers. Play together. Win together. Rule the web.</p>
+    <a href="#home" class="btn">Back to Home</a>
+  </section>
+
   <footer>
-    <p>Nothing reserved. Steal it. Hack it. Break the web.</p>
+    <p>No rules. No rights. No reservations. Burn the roadmap. Hack the world.</p>
   </footer>
 
 </body>
