@@ -2,201 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Bright Web</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body, html {
+    /* Reset and base styles */
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Share Tech Mono', monospace;
-      background-color: #0a0a0a;
-      color: #ff003c;
-      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace;
     }
 
-    a {
-      text-decoration: none;
-      color: #ff003c;
-      transition: 0.3s;
+    body {
+      background-color: #000;
+      color: #ff073a; /* Neon Red */
+      text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a, 0 0 20px #ff073a;
     }
 
-    a:hover {
-      color: #ffffff;
-    }
-
-    /* Header */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: ##ff003c;
-      border-bottom: 1px solid #ff003c;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      text-align: center;
+      padding: 50px 20px;
+      border-bottom: 2px solid #ff073a;
     }
 
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.8em;
-      color: #ff003c;
+    h1 {
+      font-size: 3rem;
       letter-spacing: 2px;
     }
 
-    nav a {
-      margin-left: 20px;
-      font-weight: bold;
-      font-size: 0.9em;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0%;
-      height: 2px;
-      background: #ff003c;
-      transition: 0.3s;
-      margin-top: 4px;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 100px 20px 80px;
+    nav {
       text-align: center;
+      margin: 30px 0;
     }
 
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      color: white;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 40px;
-      color: #ccc;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
+    nav a {
+      color: #ff073a;
+      text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
-      text-transform: uppercase;
-      border: 2px solid #ff003c;
-      color: #ff003c;
-      background: transparent;
       transition: 0.3s;
-      box-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c inset;
     }
 
-    .btn:hover {
-      background: #ff003c;
-      color: ##ff003c;
-      box-shadow: 0 0 20px #ff003c;
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ff073a;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
     section {
-      padding: 80px 20px;
-      border-top: 1px solid #222;
-      text-align: center;
+      margin-bottom: 50px;
     }
 
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      border-left: 5px solid #ff073a;
+      padding-left: 15px;
     }
 
-    section p {
-      max-width: 700px;
-      margin: 0 auto 40px;
-      font-size: 1em;
-      color: #bbb;
+    p {
+      line-height: 1.6;
     }
 
-    /* Footer */
     footer {
       text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid #ff003c;
-      font-size: 0.85em;
-      background: #ff003c;
-      color: #ff003c;
+      padding: 20px;
+      border-top: 2px solid #ff073a;
+      margin-top: 50px;
     }
 
-    /* Scanline overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 0, 60, 0.015),
-        rgba(255, 0, 60, 0.015) 1px,
-        transparent 1px,
-        transparent 4px
-      );
-      z-index: 9999;
-    }
-
-    /* Crosshair cursor */
-    body {
-      cursor: crosshair;
+    /* Optional code block style */
+    code {
+      background-color: #111;
+      padding: 10px;
+      display: block;
+      margin-top: 10px;
+      border-left: 4px solid #ff073a;
+      color: #ff073a;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo">THE BRIGHT WEB</div>
+    <h1>THE BRIGHT WEB</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#arena">Arena</a>
-      <a href="#loadouts">Loadouts</a>
-      <a href="#clan">Clan</a>
+      <a href="#">Home</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
-  <main class="hero" id="home">
-    <h1>WELCOME TO THE BRIGHT WEB</h1>
-    <p>Where gamers rise. No rules. Just code, chaos, and domination.</p>
-    <a href="#arena" class="btn">Deploy Now</a>
+  <main>
+    <section>
+      <h2>Welcome to the Bright Web</h2>
+      <p>A place where code meets chaos. This site is built for rebels, tinkerers, and digital warriors. Whether you’re just starting out or looking to push boundaries, we’ve got your back.</p>
+    </section>
+
+    <section>
+      <h2>Code Sample</h2>
+      <p>Here's a taste of some sick HTML:</p>
+      <code>
+        &lt;div class="bright-container"&gt;<br>
+        &nbsp;&nbsp;&lt;h1&gt;Neon is the new black&lt;/h1&gt;<br>
+        &nbsp;&nbsp;&lt;p&gt;Glowing with power.&lt;/p&gt;<br>
+        &lt;/div&gt;
+      </code>
+    </section>
   </main>
 
-  <section id="arena">
-    <h2>The Arena</h2>
-    <p>Step into the digital pit. It's brutal. It's fast. It's yours. Leaderboards are real-time. Wins are bragging rights. The Bright Web doesn’t forget.</p>
-    <a href="#loadouts" class="btn">View Loadouts</a>
-  </section>
-
-  <section id="loadouts">
-    <h2>Your Loadouts</h2>
-    <p>Customize your tools. Build your edge. Guns, gear, and code — tailor your arsenal to dominate the next drop.</p>
-    <a href="#clan" class="btn">Join The Clan</a>
-  </section>
-
-  <section id="clan">
-    <h2>The Clan</h2>
-    <p>This isn’t a community — it’s a movement. Join a unit of code warriors and pixel killers. Play together. Win together. Rule the web.</p>
-    <a href="#home" class="btn">Back to Home</a>
-  </section>
-
   <footer>
-    <p>No rules. No rights. No reservations. Burn the roadmap. Hack the world.</p>
+    &copy; 2025 The Bright Web — Stay Bright. Stay Loud.
   </footer>
-
 </body>
 </html>
